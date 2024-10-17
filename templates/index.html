@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курс валют</title>
+    <style>
+        body {
+            background-image: url('static/background.jpg'); /* Ваш фон */
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #333;
+            text-align: center;
+            padding: 50px; /* Відступ для опускання контенту нижче */
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 40px; /* Відступ між заголовком і таблицею */
+            color: #2e7d32; /* Зелений колір заголовка */
+        }
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 800px;
+            background-color: rgba(0, 0, 0, 0.7); /* Зміна кольору фону на темний */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            color: #fff; /* Колір тексту в таблиці */
+        }
+        th {
+            background-color: rgba(46, 125, 50, 0.8); /* Темно-зелений фон для заголовків */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Курс валют</h1>
+    <table>
+        <tr>
+            <th>Валюта</th>
+            <th>Курс</th>
+            <th>Зміна</th>
+        </tr>
+        {% for currency, rate in rates.items() %}
+        <tr>
+            <td>{{ currency }}</td>
+            <td>{{ rate }}</td>
+            <td>{{ changes[currency] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
